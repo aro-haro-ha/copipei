@@ -1,8 +1,24 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { BoxContainer } from '@/components/domains/index'
+// 型定義
+import type { VFC } from 'react'
+import { GetStaticProps } from 'next'
 
-const Home: NextPage = () => {
+type Item = {
+  href: string
+  title: string
+  description: string
+}
+
+type Items = Item[]
+
+type PropsType = {
+  items: Items
+}
+
+const Home: VFC<PropsType> = ({ items }) => {
   return (
     <div className='flex flex-col justify-center items-center py-2 min-h-screen'>
       <Head>
@@ -12,7 +28,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className='flex flex-col flex-1 justify-center items-center px-20 w-full text-center'>
-        <h1 className='text-6xl font-bold'>
+        <h1 className='text-6xl font-bold my-9'>
           Welcome to{` `}
           <a className='text-blue-600' href='https://nextjs.org'>
             Next.js!
@@ -25,31 +41,9 @@ const Home: NextPage = () => {
         </p>
 
         <div className='flex flex-wrap justify-around items-center mt-6 max-w-4xl sm:w-full'>
-          <a href='https://nextjs.org/docs' className='p-6 mt-6 w-96 hover:text-blue-600 focus:text-blue-600 rounded-xl border'>
-            <h3 className='text-2xl font-bold'>Documentation &rarr;</h3>
-            <p className='mt-4 text-xl'>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href='https://nextjs.org/learn' className='p-6 mt-6 w-96 hover:text-blue-600 focus:text-blue-600 rounded-xl border'>
-            <h3 className='text-2xl font-bold'>Learn &rarr;</h3>
-            <p className='mt-4 text-xl'>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href='https://github.com/vercel/next.js/tree/canary/examples'
-            className='p-6 mt-6 w-96 hover:text-blue-600 focus:text-blue-600 rounded-xl border'
-          >
-            <h3 className='text-2xl font-bold'>Examples &rarr;</h3>
-            <p className='mt-4 text-xl'>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href='https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
-            className='p-6 mt-6 w-96 hover:text-blue-600 focus:text-blue-600 rounded-xl border'
-          >
-            <h3 className='text-2xl font-bold'>LearnDeploy &rarr;</h3>
-            <p className='mt-4 text-xl'>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-          </a>
+          {items.map((item) => {
+            return <BoxContainer href={item.href} title={item.title} description={item.description} />
+          })}
         </div>
       </main>
 
@@ -67,3 +61,32 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+export const getStaticProps: GetStaticProps<PropsType> = async () => {
+  return {
+    props: {
+      items: [
+        {
+          href: 'https://nextjs.org/docs',
+          title: 'LearnDeploy333 →',
+          description: 'Find in-depth information about Next.js features and API',
+        },
+        {
+          href: 'https://nextjs.org/learn',
+          title: 'Learn →',
+          description: 'Learn about Next.js in an interactive course with quizzes!',
+        },
+        {
+          href: 'https://github.com/vercel/next.js/tree/canary/examples',
+          title: 'Examples →',
+          description: 'Discover and deploy boilerplate example Next.js projects.',
+        },
+        {
+          href: 'https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app',
+          title: 'LearnDeploy →',
+          description: 'Instantly deploy your Next.js site to a public URL with Vercel.',
+        },
+      ],
+    },
+  }
+}
