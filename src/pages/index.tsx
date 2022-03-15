@@ -64,7 +64,8 @@ const Home: VFC<PropsType> = ({ values }) => {
 export default Home
 
 export const getStaticProps = async () => {
-  const topRes = await fetch(process.env.API_URL)
+  const URL = process.env.API_URL
+  const topRes = await fetch(URL!)
   const topJson = await topRes.json()
   const topArticle: Array<string> = topJson?.values
 
