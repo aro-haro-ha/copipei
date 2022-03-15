@@ -1,5 +1,6 @@
 import React from 'react'
 import type { VFC } from 'react'
+import { copyTextToClipboard } from '@/services/index'
 
 type PropsType = {
   href: string
@@ -15,10 +16,15 @@ const BoxContainer: VFC<PropsType> = ({
   description,
 }) => {
   return (
-    <a href={`${href}`} className={`${styles}`}>
-      <h3 className='text-2xl font-bold'>{title}</h3>
-      <p className='mt-4 text-xl'>{description}</p>
-    </a>
+    <div className='flex items-stretch'>
+      <button
+        alt={description}
+        className='m-3 bg-trnsparent hover:bg-yellow-500 text-yellow-700 font-semibold hover:text-white active:bg-yellow-400 py-2 px-4 border border-yellow-500 hover:border-transparent rounded '
+        onClick={() => copyTextToClipboard(title)}
+      >
+        {title}
+      </button>
+    </div>
   )
 }
 

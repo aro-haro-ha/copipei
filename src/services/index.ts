@@ -1,0 +1,1 @@
+export { default as copyTextToClipboard } from '@/services/copyTextToClipboard'
