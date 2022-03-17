@@ -32,3 +32,14 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## commit log message
+
+- feat: 新しい機能
+- fix: バグの修正
+- docs: ドキュメントのみの変更
+- style: 空白、フォーマット、セミコロン追加など
+- refactor: 仕様に影響がないコード改善(リファクタ)
+- perf: パフォーマンス向上関連
+- test: テスト関連
+- chore: ビルド、補助ツール、ライブラリ関連
