@@ -16,11 +16,8 @@ const BoxContainer: VFC<PropsType> = ({
   description,
 }) => {
   return (
-    <div className='flex items-stretch'>
-      <button
-        className='m-3 bg-trnsparent hover:bg-yellow-500 text-yellow-700 font-semibold hover:text-white active:bg-yellow-400 py-2 px-4 border border-yellow-500 hover:border-transparent rounded '
-        onClick={() => copyTextToClipboard(title)}
-      >
+    <div className='w-1/4 m-4 py-2 px-4 border hover:bg-yellow-500 text-yellow-700 hover:text-white active:bg-yellow-400 border-yellow-500 hover:border-transparent rounded '>
+      <button className='font-semibold' onClick={() => copyTextToClipboard(title)}>
         {title}
       </button>
     </div>

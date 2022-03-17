@@ -1,1 +1,1 @@
-export { default as BoxContainer } from '@/components/domains/indexDomain'
+export { default as BoxContainer } from '@/components/domains/BoxContainer'

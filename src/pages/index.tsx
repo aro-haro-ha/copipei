@@ -27,8 +27,8 @@ const Home: VFC<PropsType> = ({ values }) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className='flex flex-col flex-1 justify-center items-center px-20 w-full text-center'>
-        <div className='mb-10 md:mb-16'>
+      <main className='flex flex-col justify-center items-center px-20 w-full text-center'>
+        <div className='mt-8 mb-10 md:mb-16'>
           <h2 className='text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6'>英略単語一覧</h2>
 
           <p className='max-w-screen-md text-gray-500 md:text-lg text-center mx-auto'>
@@ -36,12 +36,8 @@ const Home: VFC<PropsType> = ({ values }) => {
           </p>
         </div>
 
-        <p className='mt-3 text-2xl'>
-          Get started by editing {` `}
-          <code className='p-3 font-mono text-lg bg-gray-100 rounded-md'>pages/index.tsx</code>
-        </p>
-
-        <div className='flex flex-wrap justify-around items-center mt-6 max-w-4xl sm:w-full'>
+        {/* <div className='pl-3 mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-4 justify-center items-center w-full'>*/}
+        <div className='flex flex-wrap justify-center items-center content-around mx-auto'>
           {values.map((v) => {
             return <BoxContainer key={v.id} href={v.id} title={v.a} description={v.b} />
           })}
